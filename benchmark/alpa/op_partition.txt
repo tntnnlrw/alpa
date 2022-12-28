@@ -1,0 +1,27 @@
+Working on case: BenchmarkCase(batch_size=1024, model_config=GPTModelConfig(seq_len=1024, hidden_size=1536, num_layers=4, num_heads=16, vocab_size=51200), num_micro_batches=128, parallel_mode='uniform', parallel_args=UniformParallelArgs(prefer_reduce_scatter=False, use_remat=True, dp=1, op=2, pp=1, force_batch_dim_mapping=True))
+ - Setup device mesh: 0.00 s
+ - Prepare input: 0.06 s
+ - Create train state: 1.08 s
+ - Compile (driver): 6.73 s
+ - Compile (workers): 16.61 s
+#total: 28, #all-reduce: 28, #all-gather: 0, #reduce-scatter: 0, #all-to-all: 0
+alloc_mem: 2.02 GB
+Iteration 0 ...
+Iteration 1 ...
+Iteration 2 ...
+ - Benchmark: 54.21 s
+Type: gpt  Model Config: GPTModelConfig(seq_len=1024, hidden_size=1536, num_layers=4, num_heads=16, vocab_size=51200)  #Microbatch: 128  #GPU: 2  Parallel Config: UniformParallelArgs(prefer_reduce_scatter=False, use_remat=True, dp=1, op=2, pp=1, force_batch_dim_mapping=True)  Mean Time (s): 17.158  Std Time (s): 0.003  #Params (Billion): 0.192B  TFLOPs: 45.18  Peak Mem (GB): 3.246  Metadata: {'ilp_objective': '65438102.29'}  
+Working on case: BenchmarkCase(batch_size=1024, model_config=GPTModelConfig(seq_len=1024, hidden_size=1536, num_layers=4, num_heads=16, vocab_size=51200), num_micro_batches=128, parallel_mode='uniform', parallel_args=UniformParallelArgs(prefer_reduce_scatter=False, use_remat=True, dp=1, op=2, pp=1, force_batch_dim_mapping=True))
+ - Setup device mesh: 0.00 s
+ - Prepare input: 0.07 s
+ - Create train state: 1.16 s
+ - Compile (driver): 6.66 s
+ - Compile (workers): 16.54 s
+#total: 28, #all-reduce: 28, #all-gather: 0, #reduce-scatter: 0, #all-to-all: 0
+alloc_mem: 2.02 GB
+Iteration 0 ...
+Iteration 1 ...
+Iteration 2 ...
+ - Benchmark: 54.31 s
+Type: gpt  Model Config: GPTModelConfig(seq_len=1024, hidden_size=1536, num_layers=4, num_heads=16, vocab_size=51200)  #Microbatch: 128  #GPU: 2  Parallel Config: UniformParallelArgs(prefer_reduce_scatter=False, use_remat=True, dp=1, op=2, pp=1, force_batch_dim_mapping=True)  Mean Time (s): 17.170  Std Time (s): 0.006  #Params (Billion): 0.192B  TFLOPs: 45.15  Peak Mem (GB): 3.246  Metadata: {'ilp_objective': '65438102.29'}  
+running spends 1min 28s

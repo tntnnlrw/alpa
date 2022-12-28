@@ -51,6 +51,15 @@ sudo apt-get install -y nvidia-docker2
 sudo service docker restart
 
 # change the /etc/docker/daemon.json into the next commands
+# sudo echo '{
+#     "runtimes": {
+#         "nvidia": {
+#             "path": "nvidia-container-runtime",
+#             "runtimeArgs": []
+#         }
+#     },
+#     "storage-driver": "vfs"
+# }' >> /etc/docker/daemon.json
 #sudo cat daemon.json| /etc/docker/daemon.json
 # {
 #     "runtimes": {
