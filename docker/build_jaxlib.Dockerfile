@@ -6,6 +6,7 @@ RUN sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/
 RUN sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/7fa2af80.pub
 RUN rm -f /etc/apt/sources.list.d/jonathonf-ubuntu-python-3_6-xenial.list
 RUN apt-get update
+RUN apt-get install -y apt-utils
 RUN apt-get install -y python3-virtualenv
 
 RUN virtualenv --python=python3.7 python3.7-env

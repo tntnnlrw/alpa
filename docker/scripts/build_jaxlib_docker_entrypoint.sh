@@ -9,8 +9,10 @@ fi
 
 export CC=/dt8/usr/bin/gcc
 export GCC_HOST_COMPILER_PATH=/dt8/usr/bin/gcc
-export CUDA_PATH=/usr/local/cuda
+export CUDA_PATH=/usr/local/cuda-11.1
 export LD_LIBRARY_PATH=$CUDA_PATH/lib64:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$CUDA_PATH/lib64/stubs:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$CUDA_PATH/compat:$LD_LIBRARY_PATH
 
 usage() {
   echo "usage: ${0##*/} [3.7|3.8|3.9] [cuda|nocuda] [11.1|11.2|11.3] [alpa branch name] [tensorflow-alpa branch name]"
