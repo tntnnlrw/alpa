@@ -28,7 +28,7 @@ PY_VERSION="$1"
 echo "Python version $PY_VERSION"
 
 # switch tensorflow-alpa branch if necessary
-git clone --recursive https://github.com/alpa-projects/alpa.git
+git clone --recursive https://github.com/tntnnlrw/alpa.git
 
 # switch alpa branch
 if [[ $# -eq 4 ]]
