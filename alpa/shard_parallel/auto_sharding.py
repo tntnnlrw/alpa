@@ -652,9 +652,9 @@ def _call_solver_serialized_args(N,
     assert len(s_len_np) == N, "s_len_np"
 
     # Dump arguments for re-solving
-    # pickle.dump([N, M, s_len_np, s_follow_np, E_np, A_np, L_np,
-    #              c_np, d_np, m_np, r_np, v_np, s_init_np],
-    #              open("args.pkl", "wb"))
+    pickle.dump([N, M, s_len_np, s_follow_np, E_np, A_np, L_np,
+                 c_np, d_np, m_np, r_np, v_np, s_init_np],
+                 open("args.pkl", "wb"))
     # TODO(lmzheng): cache the ILP solution.
 
     def get_non_zero_index(binary_vector):
@@ -720,7 +720,7 @@ def _call_solver_serialized_args(N,
     assert pt == len(m_np), f"{pt} == {len(m_np)}"
 
     # 1. Create variables
-    s = []
+    s = []   
     e = []
 
     num_nodes = 0
@@ -743,7 +743,7 @@ def _call_solver_serialized_args(N,
 
     for i in reverse_follow_backpatch:
         s[i] = s[s_follow[i]]
-
+  
     num_edges = 0
     for (idx, (i, j)) in enumerate(E):
         if len(s[i]) == 1:

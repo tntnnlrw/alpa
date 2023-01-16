@@ -2,18 +2,18 @@
 start_time=$(date +%s)
 
 
-dp=(1)
-op=(2)
+dp=(1 2)
+op=(4 2)
 #mb=(1 2 4 8 16 32 64 128 256)
 mb=(128)
 
-export ALPA_DEBUG_PRINT_AS_STRATEGY=true
+# export ALPA_DEBUG_PRINT_AS_STRATEGY=true
 
 for ((k=0; k<${#dp[*]}; k=k+1)); do
     for ((j=0; j<${#mb[*]}; j=j+1)); do 
 
         python benchmark.py --suite gpt.perf_test_fast_2d \
-                    --shard-only --num-hosts 1 --num-devices-per-host 2 \
+                    --shard-only --num-hosts 1 --num-devices-per-host 4 \
                     --num_batch_size 1024 --num_micro_batches ${mb[j]} \
                     --dp ${dp[k]} --op ${op[k]} \
                     --recomputation
