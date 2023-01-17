@@ -2,21 +2,24 @@
 start_time=$(date +%s)
 
 
-dp=(1 2)
-op=(4 2)
-#mb=(1 2 4 8 16 32 64 128 256)
-mb=(128)
+dp=(1 1)
+# dp=(1)
+op=(4 8)
+mb=(32 64 128 256 512 1024)
+# mb=(32)
 
-# export ALPA_DEBUG_PRINT_AS_STRATEGY=true
+
 
 for ((k=0; k<${#dp[*]}; k=k+1)); do
     for ((j=0; j<${#mb[*]}; j=j+1)); do 
 
         python benchmark.py --suite gpt.perf_test_fast_2d \
-                    --shard-only --num-hosts 1 --num-devices-per-host 4 \
+                    --shard-only --num-hosts 1 --num-devices-per-host ${op[k]} \
                     --num_batch_size 1024 --num_micro_batches ${mb[j]} \
                     --dp ${dp[k]} --op ${op[k]} \
-                    --recomputation
+                    --recomputation 
+
+        mv /build/dump/dump.txt /build/dump/dump_${op[k]}gpu_${mb[j]}bs.txt
         
         # python benchmark.py --suite gpt.perf_test_fast_2d \
         #             --shard-only --num-hosts 1 --num-devices-per-host 2 \
@@ -27,25 +30,6 @@ for ((k=0; k<${#dp[*]}; k=k+1)); do
 
     done     #mv tmp dp${dp[k]}_op${op[k]}_BatchSize32_MicroB1_Layer4
 done  
-
-# dp=(1)
-# op=(2)
-# #mb=(1 2 4 8 16 32 64 128 256)
-# mb=(32)
-
-# for ((k=0; k<${#dp[*]}; k=k+1)); do
-#     for ((j=0; j<${#mb[*]}; j=j+1)); do 
-#         python benchmark.py --suite gpt.perf_test_fast_2d \
-#                     --shard-only --num-hosts 1 --num-devices-per-host 2 \
-#                     --num_batch_size 1024 --num_micro_batches ${mb[j]} \
-#                     --dp ${dp[k]} --op ${op[k]} \
-#                     --recomputation --reduce_scatter
-
-#         mv tmp 2d_gpu2_dp${dp[k]}_op${op[k]}_mb${mb[j]}
-
-#     done     #mv tmp dp${dp[k]}_op${op[k]}_BatchSize32_MicroB1_Layer4
-# done  
-
 
 
 
