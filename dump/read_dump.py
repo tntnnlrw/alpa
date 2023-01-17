@@ -293,6 +293,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--load_file',
                         type=str,
+                        default='dump.txt',
                         help='set the loader file for experiment data')
     parser.add_argument('--random', action='store_true', help='randomize the c,d and r')
     parser.add_argument('--memory', action='store_true', help='set M=memory')

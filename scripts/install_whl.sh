@@ -7,5 +7,5 @@ source python3.8-env/bin/activate && pip install --upgrade pip && \
        pip install numpy==1.20 setuptools wheel six auditwheel && \
        pip install cupy-cuda111 && pip install alpa && \
        pip install /build/docker/dist/jaxlib-0.3.22+cuda111.cudnn805-cp38-cp38-manylinux2014_x86_64.whl
-# 
+
 # pip install --no-index --find-links=/wheels jaxlib-0.3.22+cuda111.cudnn805-cp38-cp38-manylinux2014_x86_64.whl

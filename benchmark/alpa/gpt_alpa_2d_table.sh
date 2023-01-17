@@ -2,11 +2,11 @@
 start_time=$(date +%s)
 
 
-dp=(1 1)
 # dp=(1)
+dp=(1)
 op=(4 8)
-mb=(32 64 128 256 512 1024)
-# mb=(32)
+# mb=(32 64 128 256 512 1024)
+mb=(32)
 
 
 
@@ -19,7 +19,7 @@ for ((k=0; k<${#dp[*]}; k=k+1)); do
                     --dp ${dp[k]} --op ${op[k]} \
                     --recomputation 
 
-        mv /build/dump/dump.txt /build/dump/dump_${op[k]}gpu_${mb[j]}bs.txt
+        # mv /build/dump/dump.txt /build/dump/dump_${op[k]}gpu_${mb[j]}bs.txt
         
         # python benchmark.py --suite gpt.perf_test_fast_2d \
         #             --shard-only --num-hosts 1 --num-devices-per-host 2 \
